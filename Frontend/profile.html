@@ -1,52 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User Profile</title>
-
-  <!-- الملف الأساسي -->
-  <link rel="stylesheet" href="CSS/style.css">
-  <!-- الملف الخاص بالبروفايل -->
-  <link rel="stylesheet" href="CSS/Profile.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Cartify</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/profile.css">
+    <link rel="icon" href="Icons/favicon.ico" type="image/x-icon">
 </head>
 <body>
+    <!-- ================= HEADER ================= -->
+    <header class="headerr">
+        <div class="PageIcon">
+            <a href="index.html"><img src="Icons/Untitled-ن2.png" alt="Logo"></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+        </div>
 
-  <!-- الهيدر (زي index.html) -->
-  <header class="headerr">
-    <div class="PageIcon">
-      <a href="index.html">
-        <img src="Icons/Untitled-ن2.png" alt="Carify Logo">
-      </a>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="profile.html">Profile</a></li>
-        </ul>
-      </nav>
-    </div>
-    <div class="middle">
-      <input type="text" id="searchBar" placeholder="Search products...">
-    </div>
-    <div class="Login">
-      <a href=""><img src="Icons/cart.png" id="cart" alt="Cart"></a>
-      <a href="login.html" class="LOGIN">Login</a>
-      <a href="register.html" class="startforfree">Start for free</a>
-    </div>
-  </header>
+        <div class="middle">
+            <input type="text" name="search" id="searchBar" placeholder="Search products...">
+        </div>
 
-  <!-- المحتوى الخاص بالبروفايل -->
-  <main class="container">
-    <h2 class="section-title">My Profile</h2>
+        <div class="Login">
+            <a href="cartpage.html" class="nav-btn cart-btn">
+                <img src="Icons/cart.png" id="cart" alt="Cart">
+                <span>Go to Cart</span>
+            </a>
+            <a href="profile.html" class="nav-btn profile-btn">
+                <span>My Profile</span>
+            </a>
+            <a href="login.html" class="LOGIN">Login</a>
+            <a href="register.html" class="startforfree">Start for free</a>
+        </div>
+    </header>
 
-    <div class="card-custom">
-      <h5>User Information</h5>
-      <p class="small-muted">Name: John Doe</p>
-      <p class="small-muted">Email: john@example.com</p>
-      <button class="btn-green">Edit Profile</button>
+    <!-- ================= PROFILE CONTENT ================= -->
+    <div class="profile-container">
+        <!-- Sidebar -->
+        <div class="profile-sidebar">
+            <div class="user-info">
+                <div class="user-avatar">
+                    <img src="Icons/user.png" alt="Profile">
+                    <button class="change-avatar-btn">Change Photo</button>
+                </div>
+                <h2 class="user-name">John Doe</h2>
+                <p class="user-email">john.doe@example.com</p>
+            </div>
+
+            <div class="profile-nav">
+                <button class="nav-item active" data-tab="profile-info">Profile Information</button>
+                <button class="nav-item" data-tab="manage-addresses">Manage Addresses</button>
+                <button class="nav-item" data-tab="payment-methods">Payment Methods</button>
+                <button class="nav-item" data-tab="security">Security</button>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="profile-content">
+            <!-- Profile Information Tab -->
+             <div class="tab-content active" id="profile-info"></div>
+                <div class="tab-header">
+                    <h2>Profile Information</h2>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" id="firstName" value="John" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" id="lastName" value="Doe" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="email" value="john.doe@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" id="phone" value="+20123456789" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Date of Birth</label>
+                    <input type="date" id="birthDate" value="1990-01-01" required>
+                </div>
+
+                <button type="submit" class="save-btn">Save Changes</button>
+            </form>
+
+            <!-- Manage Addresses Tab -->
+            <div class="tab-content" id="manage-addresses">
+                <div class="tab-header">
+                    <h2>Manage Addresses</h2>
+                    <button type="button" class="add-address-btn">+ Add New Address</button>
+                </div>
+
+                <div class="address-card">
+                    <div class="address-header">
+                        <h3>Home Address</h3>
+                        <span class="default-badge">Default</span>
+                    </div>
+                    <p>123 Main Street, Apt 4B</p>
+                    <p>Cairo, Egypt 12345</p>
+                    <div class="address-actions">
+                        <button type="button" class="edit-btn">Edit</button>
+                        <button type="button" class="delete-btn">Delete</button>
+                    </div>
+                </div>
+
+                <div class="address-card">
+                    <div class="address-header">
+                        <h3>Work Address</h3>
+                    </div>
+                    <p>456 Business District</p>
+                    <p>Giza, Egypt 67890</p>
+                    <div class="address-actions">
+                        <button type="button" class="edit-btn">Edit</button>
+                        <button type="button" class="delete-btn">Delete</button>
+                        <button type="button" class="set-default-btn">Set as Default</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Methods Tab -->
+            <div class="tab-content" id="payment-methods">
+                <div class="tab-header">
+                    <h2>Payment Methods</h2>
+                    <button type="button" class="add-payment-btn">+ Add Payment Method</button>
+                </div>
+                
+                <div class="payment-card">
+                    <div class="payment-header">
+                        <h3>💳 Visa ending in 1234</h3>
+                        <span class="default-badge">Default</span>
+                    </div>
+                    <p>Expires 12/2025</p>
+                    <div class="payment-actions">
+                        <button type="button" class="edit-btn">Edit</button>
+                        <button type="button" class="delete-btn">Delete</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security Tab -->
+             <div class="tab-content" id="security">
+                <div class="tab-header">
+                    <h2>Security Settings</h2>
+                </div>
+                
+                <div class="form-group">
+                    <label>Current Password</label>
+                    <input type="password" id="currentPassword" required>
+                </div>
+
+                <div class="form-group">
+                    <label>New Password</label>
+                    <input type="password" id="newPassword" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Confirm New Password</label>
+                    <input type="password" id="confirmPassword" required>
+                </div>
+
+                <button type="button"save-btn">Update Password</button>
+
+                <div class="security-options">
+                    <h3>Privacy Settings</h3>
+                    <div class="toggle-option">
+                        <span>Two-Factor Authentication</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    
+                    <div class="toggle-option">
+                        <span>Email Notifications</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-  </main>
 
+    <script src="JS/profile.js"></script>
 </body>
 </html>

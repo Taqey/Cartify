@@ -1,43 +1,380 @@
-/* ================= PROFILE PAGE STYLES ================= */
-.section-title {
-    font-size: 28px;
-    font-weight: bold;
-    color: var(--greenDark);
-    margin: 20px 0;
-    font-family: 'Poppins', sans-serif;
+/* profile.css - Fixed Version */
+:root {
+    --green-light: #f0f6eb;
+    --green-light-hover: #e8f2e1;
+    --green-light-active: #cfe4c0;
+    --green-normal: #65a834;
+    --green-normal-hover: #5b972f;
+    --green-normal-active: #51862a;
+    --green-dark: #4c7e27;
+    --green-dark-hover: #3d651f;
+    --green-dark-active: #2d4c17;
+    --green-darker: #233b12;
 }
 
-.card-custom {
-    background: var(--greenLight);
-    border: 1px solid var(--greenNormal);
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.card-custom h5 {
-    margin-bottom: 10px;
-    color: var(--greenNormal);
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    line-height: 1.6;
 }
 
-.small-muted {
-    color: #666;
-    font-size: 14px;
-    margin-bottom: 8px;
+.profile-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    min-height: 80vh;
 }
 
-.btn-green {
-    padding: 10px 18px;
-    border: none;
-    border-radius: 8px;
-    background: var(--greenNormal);
+/* Sidebar Styles */
+.profile-sidebar {
+    width: 300px;
+    background: var(--green-light);
+    padding: 30px 20px;
+    border-right: 1px solid var(--green-light-active);
+}
+
+.user-info {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.user-avatar {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.user-avatar img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid var(--green-normal);
+    object-fit: cover;
+}
+
+.change-avatar-btn {
+    background: var(--green-normal);
     color: white;
-    font-weight: bold;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 12px;
     cursor: pointer;
-    transition: 0.3s ease;
+    margin-top: 8px;
+    transition: background 0.3s;
 }
 
-.btn-green:hover {
-    background: var(--greenDark);
+.change-avatar-btn:hover {
+    background: var(--green-normal-hover);
+}
+
+.user-name {
+    color: var(--green-darker);
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.user-email {
+    color: var(--green-dark);
+    font-size: 14px;
+}
+
+.profile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nav-item {
+    background: none;
+    border: none;
+    padding: 15px 20px;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s;
+    color: var(--green-darker);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.nav-item:hover {
+    background: var(--green-light-hover);
+}
+
+.nav-item.active {
+    background: var(--green-normal);
+    color: white;
+}
+
+/* Main Content Styles */
+.profile-content {
+    flex: 1;
+    padding: 40px;
+    position: relative;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-content h2 {
+    color: var(--green-darker);
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--green-light);
+    padding-bottom: 10px;
+}
+
+.tab-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.tab-header h2 {
+    margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* Form Styles */
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-row .form-group {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--green-dark);
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid var(--green-light-active);
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--green-normal);
+}
+
+/* Button Styles */
+.save-btn, .add-address-btn, .add-payment-btn {
+    background: var(--green-normal);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-weight: 500;
+}
+
+.save-btn:hover, .add-address-btn:hover, .add-payment-btn:hover {
+    background: var(--green-normal-hover);
+}
+
+/* Card Styles */
+.address-card, .payment-card {
+    border: 2px solid var(--green-light);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    transition: border-color 0.3s;
+}
+
+.address-card:hover, .payment-card:hover {
+    border-color: var(--green-light-active);
+}
+
+.address-header, .payment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.default-badge {
+    background: var(--green-normal);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* Action Buttons */
+.address-actions, .payment-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.edit-btn, .delete-btn, .set-default-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.edit-btn {
+    background: var(--green-light);
+    color: var(--green-darker);
+}
+
+.edit-btn:hover {
+    background: var(--green-light-hover);
+}
+
+.delete-btn {
+    background: #fee;
+    color: #c33;
+}
+
+.delete-btn:hover {
+    background: #fdd;
+}
+
+.set-default-btn {
+    background: var(--green-light);
+    color: var(--green-darker);
+}
+
+.set-default-btn:hover {
+    background: var(--green-light-hover);
+}
+
+/* Security Toggle Switches */
+.security-options {
+    margin-top: 40px;
+}
+
+.security-options h3 {
+    color: var(--green-darker);
+    margin-bottom: 20px;
+}
+
+.toggle-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--green-light);
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--green-normal);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* FIX FOR SHAKING - NO TRANSITIONS */
+.profile-container * {
+    transition: none !important;
+    animation: none !important;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .profile-container {
+        flex-direction: column;
+        margin: 10px;
+    }
+    
+    .profile-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--green-light-active);
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .tab-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
 }
